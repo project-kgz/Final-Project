@@ -70,6 +70,7 @@ createdb geo #databasename 'geo'
 psql geo
 CREATE EXTENSION postgis;
 SELECT postgis_full_version(); #control postgis working
+CREATE EXTENSION postgis_topology;
 
 .
 .
