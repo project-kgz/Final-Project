@@ -1,0 +1,36 @@
+## Download GEOS ##
+wget http://download.osgeo.org/geos/geos-3.9.0.tar.bz2
+tar xjf geos-3.9.0.tar.bz2
+cd geos-3.9.0
+./configure
+make
+sudo make install
+
+
+## Download PROJ4 ## 
+wget https://download.osgeo.org/proj/proj-X.Y.Z.tar.gz
+wget https://download.osgeo.org/proj/proj-datumgrid-X.Y.tar.gz
+tar xzf proj-X.Y.Z.tar.gz
+cd proj-X.Y.Z/nad
+tar xzf ../../proj-datumgrid-X.Y.tar.gz
+cd ..
+./configure
+make
+sudo make install
+cd ..
+
+## PostgreSQL Apt Repository ##
+# Create the file repository configuration:
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+# Import the repository signing key:
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+# Update the package lists:
+sudo apt-get update
+# Install the latest version of PostgreSQL.
+# If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql':
+sudo apt-get -y install postgresql
+
+## Download PostgreSQL ##
+apt-get install postgresql-12
+
+ 
