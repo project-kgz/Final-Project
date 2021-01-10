@@ -34,3 +34,46 @@ sudo apt-get -y install postgresql
 apt-get install postgresql-12
 
  
+pip install psycopg2
+
+apt-get -y install postgresql-12
+apt-get -y install postgresql-client-12
+apt-get -y install postgresql-contrib-12
+apt-get -y install libpq-dev
+apt-get -y install postgresql-server-dev-12
+
+
+## Download PostGIS ##
+#Verify what version of Ubuntu you are running
+sudo lsb_release -a 
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt xenial-pgdg main" >> /etc/apt/sources.list'
+#Add Keys
+wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
+sudo apt update
+sudo apt-cache policy postgis #gives list of versions
+# to install default version
+sudo apt install postgis --no-install-recommends
+
+#if you'd prefer to install a specific version where 2.4.3+dfsg-4 replace with your desired version from cache policy list
+sudo apt install postgis=2.4.3+dfsg-4  --no-install-recommends
+
+#Install
+sudo apt install postgresql-10
+sudo apt install postgresql-10-postgis-2.4 
+sudo apt install postgresql-10-postgis-scripts
+
+#to get the commandline tools shp2pgsql, raster2pgsql you need to do this
+sudo apt install postgis
+
+sudo -u postgres psql
+createdb geo #databasename 'geo'
+psql geo
+CREATE EXTENSION postgis;
+SELECT postgis_full_version(); #control postgis working
+
+.
+.
+.
+
+end
+
