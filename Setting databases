@@ -1,0 +1,22 @@
+CREATE USER geotest WİTH PASSWORD '123456';
+django-admin startproject geodjango
+cd geodjango
+python manage.py startapp world
+cd geodjango
+vi settings.py
+#add in 'INSTALLED_APPS'
+.
+.
+'django.contrib.gis',
+'world'
+#edit 'DATABASES'
+cd ..
+mkdir world/data
+cd world/data
+wget https://thematicmapping.org/downloads/TM_WORLD_BORDERS-0.3.zip
+unzip TM_WORLD_BORDERS-0.3.zip
+cd ../..
+#Use ogrinfo to examine spatial data
+ogrinfo world/data/TM_WORLD_BORDERS-0.3.shp
+ogrinfo -so world/data/TM_WORLD_BORDERS-0.3.shp TM_WORLD_BORDERS-0.3
+
