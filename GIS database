@@ -1,0 +1,26 @@
+cd geodjango
+cd world
+vi models.py
+#insert - 'i'
+"""
+from django.contrib.gis.db import models
+
+class Member(models.Model):
+    name = models.CharField(max_length=600)
+    image= models.CharField(max_length=600)
+    point = models.PolygonField() 
+    poly = models.PolygonField()
+    objects = models.GeoManager()
+def __str__(self):
+    return self.name
+"""
+:wq
+cd ..
+python manage.py syncdb #create superuser
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver 0:80
+
+
+
+    
