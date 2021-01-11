@@ -1,5 +1,0 @@
-#create a project
-django-admin.py startproject geodjango
-cd geodjango
-python manage.py runserver 0:80
-
