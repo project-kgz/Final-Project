@@ -1,0 +1,27 @@
+cd/opt
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install vim
+sudo apt-get install python-dev
+sudo apt-get install libevent-dev
+sudo apt-get install libpq-dev python-dev
+sudo apt-get install build-essential
+virsudo apt-get -y install python-software-properties
+apt-get install git
+apt-get install makeap
+apt-get install libxml2-dev libxslt-dev
+apt-get install python-lxml
+
+#virtual server
+cd
+virtualenv geo
+cd geo
+. bin/activate
+cd bin
+pip install django
+cd ..
+#new project
+django-admin startproject geodjango  
+cd geodjango
+python manage.py runserver 0:80
+
